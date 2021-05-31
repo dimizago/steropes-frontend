@@ -5,26 +5,21 @@
 	let searchQuery = null;
 
 	function handleSubmit () {
-
 	}
 	
 </script>
 
-<main>
-	<Search bind:query={searchQuery} handleSubmit={handleSubmit}/>
-</main>
+<div class="steropes-container">
+	<div class="basic-container">
+		<Search/>
+	</div>
+</div>
 
 <style>
-	main {
+	.steropes-container {
 		text-align: center;
-		padding: 1em;
-		max-width: 240px;
+		width: 100%;
+		height: 100%;
 		margin: 0 auto;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
 	}
 </style>

@@ -4,9 +4,9 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
-
-
 import replace from '@rollup/plugin-replace'
+import sveltePreprocess from 'svelte-preprocess'
+
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -45,13 +45,14 @@ export default {
     plugins: [
         replace({
             preventAssignment: true,
-            BACKEND_API: JSON.stringify(process.env.BACKEND_API),
+            BACKEND_URL: JSON.stringify(process.env.BACKEND_URL),
         }),
         svelte({
             compilerOptions: {
                 // enable run-time checks when not in production
-                dev: !production
-            }
+                dev: !production,
+            },
+            preprocess: sveltePreprocess({ /* options */ })
         }),
         // we'll extract any component CSS out into
         // a separate file - better for performance
