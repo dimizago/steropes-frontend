@@ -1,6 +1,7 @@
 <script>
     export let query;
     export let handleSubmit;
+
 </script>
 
 <style>
@@ -25,6 +26,20 @@
     .search-input:focus{
         outline:none;
         border-color: #ffa500;
+    }
+
+    .search {
+        animation: fadeInUp 1s;
+    }
+
+    @keyframes fadeInUp {
+        from { 
+            transform: translate3d(0,40px,0);
+            opacity: 0; 
+        }
+        to { 
+            opacity: 1;
+        }
     }
 
 </style>

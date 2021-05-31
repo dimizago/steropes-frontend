@@ -1,7 +1,6 @@
 <script>
 	import Search from "./components/Search.svelte";
 	import Stocks from "./services/Stocks.svelte"
-	export let ENV;
 
 	let searchQuery = null;
 
@@ -12,7 +11,6 @@
 </script>
 
 <main>
-	<div>Hello</div>
 	<Search bind:query={searchQuery} handleSubmit={handleSubmit}/>
 </main>
 
