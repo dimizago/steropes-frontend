@@ -1,8 +1,6 @@
 <script>
-    import {Loading} from 'attractions';
     export let results;
-    export let isLoading;
-    // export let handleClick;
+    export let handleClick;
 
 </script>
 
@@ -55,24 +53,16 @@
 </style>
 
 <div>
-
-    {#if isLoading}
-        <div class="loading">
-            <Loading/>
-        </div>
-    {/if}
-    {#if results.length > 0}
         <div class="options">
-            <!-- <ul>
-                {#each results['symbol'] as result}
-                    <a on:click|preventDefault={() => handleClick(`http://localhost:8000/stock/v1/intraday/${result}`)} href="http://localhost:8000/stock/v1/intraday/{result}">
+            <ul>
+                {#each Object.keys(results) as key}
+                    <a on:click|preventDefault={() => handleClick(`http://localhost:8000/stock/v1/intraday/${results[key]['symbol']}`)} href="http://localhost:8000/stock/v1/intraday/{results[key]['symbol']}">
                         <li>
-                            <span class="stockSymbol">{@html result}</span> 
-                            <span class="stockName"> - {@html result['name']}</span>
+                            <span class="stockSymbol">{@html results[key]['symbol']}</span> 
+                            <span class="stockName"> - {@html results[key]['name']}</span>
                         </li>
                     </a>
                  {/each}
-            </ul> -->
+            </ul>
         </div>
-    {/if}
 </div>
